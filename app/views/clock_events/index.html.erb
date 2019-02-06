@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clock Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Clock event type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clock_events.each do |clock_event| %>
+      <tr>
+        <td><%= clock_event.user %></td>
+        <td><%= clock_event.clock_event_type %></td>
+        <td><%= link_to 'Show', clock_event %></td>
+        <td><%= link_to 'Edit', edit_clock_event_path(clock_event) %></td>
+        <td><%= link_to 'Destroy', clock_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clock Event', new_clock_event_path %>

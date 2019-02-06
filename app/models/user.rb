@@ -7,6 +7,8 @@ class User < ApplicationRecord
   enum role: [:teacher, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :clock_events
+
   def set_default_role
     self.role ||= :teacher
   end
