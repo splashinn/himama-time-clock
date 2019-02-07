@@ -1,0 +1,14 @@
+h1 Clock Events
+
+table.table.table-bordered.table-hover.mt-5
+  thead
+    tr
+      th User
+      th Clock event type
+      th Timestamp
+  tbody
+    - @clock_events.each do |clock_event|
+      tr
+        td = clock_event.user.name
+        td = clock_event.clock_event_type.name
+        td = clock_event.created_at.strftime('%b %d, %Y %I:%M:%S %p')

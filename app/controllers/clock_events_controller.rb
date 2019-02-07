@@ -1,10 +1,15 @@
 class ClockEventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_clock_event, only: [:show, :edit, :update, :destroy]
 
   # GET /clock_events
   # GET /clock_events.json
   def index
-    @clock_events = ClockEvent.all
+    unless current_user.admin?
+      @clock_events = current_user.clock_events
+    else
+      @clock_events = ClockEvent.all
+    end
   end
 
   # GET /clock_events/1

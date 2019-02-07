@@ -32,4 +32,12 @@ class User < ApplicationRecord
     self.role ||= :teacher
   end
   
+  def name
+    full_name = self.last_name + ", " + self.first_name
+    if self.prefered_name
+      full_name + " (#{self.prefered_name})"
+    else
+      full_name
+    end
+  end
 end
