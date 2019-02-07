@@ -6,9 +6,9 @@ class ClockEventsController < ApplicationController
   # GET /clock_events.json
   def index
     unless current_user.admin?
-      @clock_events = current_user.clock_events
+      @clock_events = current_user.clock_events.order(created_at: :desc)
     else
-      @clock_events = ClockEvent.all
+      @clock_events = ClockEvent.all.order(created_at: :desc)
     end
   end
 
@@ -33,7 +33,7 @@ class ClockEventsController < ApplicationController
 
     respond_to do |format|
       if @clock_event.save
-        format.html { redirect_to @clock_event, notice: 'Clock event was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Clock event was successfully created.' }
         format.json { render :show, status: :created, location: @clock_event }
       else
         format.html { render :new }

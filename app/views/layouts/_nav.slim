@@ -1,0 +1,7 @@
+nav.navbar.navbar-light.bg-light
+  = link_to '/', class: 'navbar-brand'
+    = image_tag 'https://s3.amazonaws.com/himama2/images/horizontal-logo.png', class: 'd-inline-block align-top', alt:'himama logo', title: 'himama'
+  - if user_signed_in?
+    = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-info my-2 my-sm-0'
+  - else
+    = link_to 'Log in', new_user_session_path, class: 'btn btn-info my-2 my-sm-0'

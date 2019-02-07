@@ -40,4 +40,13 @@ class User < ApplicationRecord
       full_name
     end
   end
+
+  def clock_in_today?
+    self.clock_events.today.clock_in.present?
+  end
+
+  def clock_out_today?
+    self.clock_events.today.clock_out.present?
+  end
+
 end

@@ -12,4 +12,8 @@
 class ClockEvent < ApplicationRecord
   belongs_to :user
   belongs_to :clock_event_type
+
+  scope :today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
+  scope :clock_in, -> { where(clock_event_type_id: 1) }
+  scope :clock_out, -> { where(clock_event_type_id: 2) }
 end

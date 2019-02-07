@@ -1,5 +1,20 @@
-h1 Clock Events
+.clock-user-container.container
+  .clock-and-time-block.mt-3
+    = render 'clock_events/clock'
+    .time-frame
+      #date-part
+      #time-part
+  .user-info-and-action-block.mt-5
+    - if current_user.clock_out_today?
+      .greeting ="Thanks for your effort today! #{greeting} :)"
+    - elsif current_user.clock_in_today?
+      .greeting Ready to get off the work?
+      = render 'clock_events/form', event_type: 'Clock Out'
+    - else
+      .greeting = "#{greeting} Ready for lovely students? :P"
+      = render 'clock_events/form', event_type: 'Clock In'
 
+h3.mt-5 Activity Log
 table.table.table-bordered.table-hover.mt-5
   thead
     tr
