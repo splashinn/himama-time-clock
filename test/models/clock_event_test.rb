@@ -7,6 +7,7 @@
 #  clock_event_type_id :bigint(8)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  clock_time          :datetime
 #
 
 require 'test_helper'
