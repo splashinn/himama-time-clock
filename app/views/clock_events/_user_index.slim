@@ -1,0 +1,22 @@
+.user-activity-container.container
+  .user-activity-header.mt-5
+    = image_tag 'file-text.svg', size: '30x30', class: 'mr-2'
+    .text = "#{current_user.name}'s Activity Log"
+  table.table.table-bordered.table-hover.mt-2.mb-5
+    thead
+      tr.table-info
+        th Date
+        th Type
+        th Timestamp
+    tbody
+      - if @clock_events.present?
+        - @clock_events.each do |clock_event|
+          tr
+            td = clock_event.clock_time.strftime('%b %d, %Y')
+            td = clock_event.clock_event_type.name
+            td = clock_event.clock_time.strftime('%I:%M:%S %p')
+      - else
+        tr
+          td N/A
+          td N/A
+          td N/A

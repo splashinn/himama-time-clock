@@ -8,13 +8,13 @@ module ClockEventsHelper
 
     case
     when midnight.upto(noon).include?(current_time)
-      "Good Morning!"
+      "Good Morning"
     when noon.upto(five_pm).include?(current_time)
-       "Good Afternoon!"
+       "Good Afternoon"
     when five_pm.upto(eight_pm).include?(current_time)
-      "Good Evening!"
+      "Good Evening"
     when eight_pm.upto(midnight + 1.day).include?(current_time)
-      "Good Night!"
+      "Good Night"
     end
   end
 end
