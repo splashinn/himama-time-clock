@@ -1,35 +1,41 @@
 h1.h1.title.text-center.mt-5 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'user-form form-container'}) do |f|
-  = devise_error_messages!
+= form_for(resource, as: resource_name, url: registration_path(resource_name), builder: SignUpFormBuilder, html: {class: 'user-form form-container'}) do |f|
   .form-group.email.required
     = f.label :email
     = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hola@himama.com', class: 'form-control'
+    = f.errors :email
 
   .form-row.name
     .form-group.firstname.col-md-4.required
       = f.label :first_name
       = f.text_field :first_name, autocomplete: "given-name"
+      = f.errors :first_name
 
     .form-group.middlename.col-md-4
       = f.label :middle_name
       = f.text_field :middle_name, autocomplete: "additional-name"
+      = f.errors :middle_name
 
     .form-group.lastname.col-md-4.required
       = f.label :last_name
       = f.text_field :last_name, autocomplete: "family-name"
+      = f.errors :last_name
 
     .form-group.nickname.col-md-4
       = f.label :prefered_name
       = f.text_field :prefered_name, autocomplete: "nickname"
+      = f.errors :prefered_name
 
   .form-group.password.required
     = f.label :password
     = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+    = f.errors :password
     - if @minimum_password_length
       em = "(#{@minimum_password_length} characters minimum)"
   .form-group.password.mb-3.required
     = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+    = f.errors :password_confirmation
 
   = f.submit "Sign up", class: 'btn btn-primary float-right'
   
