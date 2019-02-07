@@ -13,11 +13,11 @@
         .greeting ="Thanks for your effort today! #{greeting} :)"
       - elsif current_user.clock_in_today?
         .greeting Ready to get off the work?
-        = render 'clock_events/user_form', event_type: 'Clock Out'
+        = render 'clock_events/user_form', event_type: 'Clock out'
       - else
         .greeting = "#{greeting} #{current_user.name}!"
         .greeting Ready for lovely students? :P
-        = render 'clock_events/user_form', event_type: 'Clock In'
+        = render 'clock_events/user_form', event_type: 'Clock in'
 
   hr.mt-5
 
