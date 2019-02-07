@@ -1,0 +1,27 @@
+- if flash[:notice]
+  .alert.alert-success = flash[:notice]
+
+- unless current_user.admin?
+  .clock-user-container.container
+    .clock-and-time-block.mt-3
+      = render 'clock_events/clock'
+      .time-frame
+        #date-part
+        #time-part
+    .user-info-and-action-block.mt-5
+      - if current_user.clock_out_today?
+        .greeting ="Thanks for your effort today! #{greeting} :)"
+      - elsif current_user.clock_in_today?
+        .greeting Ready to get off the work?
+        = render 'clock_events/user_form', event_type: 'Clock Out'
+      - else
+        .greeting = "#{greeting} #{current_user.name}!"
+        .greeting Ready for lovely students? :P
+        = render 'clock_events/user_form', event_type: 'Clock In'
+
+  hr.mt-5
+
+- if current_user.admin?
+  = render 'clock_events/admin_index'
+- else
+  = render 'clock_events/user_index'

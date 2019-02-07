@@ -28,8 +28,28 @@ class User < ApplicationRecord
 
   has_many :clock_events
 
+  scope :not_admin, -> { where.not(role: 1) }
+
   def set_default_role
     self.role ||= :teacher
   end
   
+  def name
+    return if self.admin?
+    full_name = self.last_name + ", " + self.first_name
+    if self.prefered_name
+      full_name + " (#{self.prefered_name})"
+    else
+      full_name
+    end
+  end
+
+  def clock_in_today?
+    self.clock_events.today.clock_in.present?
+  end
+
+  def clock_out_today?
+    self.clock_events.today.clock_out.present?
+  end
+
 end

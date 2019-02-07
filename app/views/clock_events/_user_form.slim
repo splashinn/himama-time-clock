@@ -1,0 +1,5 @@
+= form_with(model: ClockEvent.new, local: true) do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :clock_event_type_id, value: 1 if event_type == 'Clock In'
+  = f.hidden_field :clock_event_type_id, value: 2 if event_type == 'Clock Out'
+  = f.submit event_type, class: 'btn btn-outline-info btn-lg mt-3'
