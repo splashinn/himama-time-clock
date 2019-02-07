@@ -1,0 +1,21 @@
+h1.h1.title.text-center.mt-5 Log In
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'user-form form-container'}) do |f|
+  .form-group.email
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hola@himama.com', class: 'form-control'
+
+  .form-group.password
+    = f.label :password
+    = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+
+  - if devise_mapping.rememberable?
+    .remember-me.mb-3
+      = f.check_box :remember_me, class: 'mr-2'
+      = f.label :remember_me
+
+  = f.submit "Log in", class: 'btn btn-primary float-right'
+  
+  hr.mt-5
+  
+  .shared-links.mb-5
+    = render "users/shared/links"

@@ -23,6 +23,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates_presence_of :first_name, :last_name
+
   enum role: [:teacher, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -37,7 +39,7 @@ class User < ApplicationRecord
   def name
     return if self.admin?
     full_name = self.last_name + ", " + self.first_name
-    if self.prefered_name
+    if self.prefered_name.present?
       full_name + " (#{self.prefered_name})"
     else
       full_name
