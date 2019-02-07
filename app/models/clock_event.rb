@@ -23,4 +23,13 @@ class ClockEvent < ApplicationRecord
   def set_clock_time
     self.clock_time = Time.zone.now if self.clock_time.blank?
   end
+
+  def already_exist_at_the_day?
+    new_record_date = self.clock_time.beginning_of_day
+    find_existing_record = ClockEvent.where(
+      user_id: self.user_id,
+      clock_event_type_id: self.clock_event_type_id).where(
+      "clock_time >= ?", new_record_date)
+    find_existing_record.size > 0 ? true : false
+  end
 end

@@ -1,5 +1,7 @@
 - if flash[:notice]
   .alert.alert-success = flash[:notice]
+- if flash[:alert]
+  .alert.alert-danger = flash[:alert]
 
 - unless current_user.admin?
   .clock-user-container.container
@@ -10,12 +12,13 @@
         #time-part
     .user-info-and-action-block.mt-5
       - if current_user.clock_out_today?
-        .greeting ="Thanks for your effort today! #{greeting} :)"
+        .greeting ="Thanks for your effort today!"
+        .greeting = "#{greeting}, #{current_user.name} :)"
       - elsif current_user.clock_in_today?
         .greeting Ready to get off the work?
         = render 'clock_events/user_form', event_type: 'Clock out'
       - else
-        .greeting = "#{greeting} #{current_user.name}!"
+        .greeting = "#{greeting}, #{current_user.name}!"
         .greeting Ready for lovely students? :P
         = render 'clock_events/user_form', event_type: 'Clock in'
 
