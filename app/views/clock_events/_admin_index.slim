@@ -1,9 +1,13 @@
-= link_to 'New Clock Event', new_clock_event_path
-
 .user-activity-container.container
   .user-activity-header.mt-5
     = image_tag 'file-text.svg', size: '30x30', class: 'mr-2'
-    .text = "All Activity Log"
+    .text All Event Log
+  .sub-nav.nav.mt-3
+    = link_to new_clock_event_path, class: 'nav-link'
+      svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" class="mr-2"
+        title plus
+        path fill="#007bff" d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"
+      span.text Add New Event
   table.table.table-bordered.table-hover.mt-2.mb-5
     thead
       tr.table-info
