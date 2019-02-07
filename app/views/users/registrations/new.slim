@@ -1,0 +1,39 @@
+h1.h1.title.text-center.mt-5 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'user-form form-container'}) do |f|
+  = devise_error_messages!
+  .form-group.email.required
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hola@himama.com', class: 'form-control'
+
+  .form-row.name
+    .form-group.firstname.col-md-4.required
+      = f.label :first_name
+      = f.text_field :first_name, autocomplete: "given-name"
+
+    .form-group.middlename.col-md-4
+      = f.label :middle_name
+      = f.text_field :middle_name, autocomplete: "additional-name"
+
+    .form-group.lastname.col-md-4.required
+      = f.label :last_name
+      = f.text_field :last_name, autocomplete: "family-name"
+
+    .form-group.nickname.col-md-4
+      = f.label :prefered_name
+      = f.text_field :prefered_name, autocomplete: "nickname"
+
+  .form-group.password.required
+    = f.label :password
+    = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+    - if @minimum_password_length
+      em = "(#{@minimum_password_length} characters minimum)"
+  .form-group.password.mb-3.required
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+
+  = f.submit "Sign up", class: 'btn btn-primary float-right'
+  
+  hr.hr
+  
+  .shared-links.mb-5
+    = render "users/shared/links"
