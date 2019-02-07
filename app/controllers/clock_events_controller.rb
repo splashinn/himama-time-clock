@@ -1,5 +1,6 @@
 class ClockEventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_admin, only: [:new, :edit]
   before_action :set_clock_event, only: [:edit, :update, :destroy]
   before_action :set_form_selection, only: [:new, :create, :edit, :update]
 
@@ -22,7 +23,7 @@ class ClockEventsController < ApplicationController
     @clock_event = ClockEvent.new(clock_event_params)
     
     # Clock in / clock out can only be triggered once a day
-    if @clock_event.already_exist_at_the_day?
+    if current_user.admin? && @clock_event.already_exist_at_the_day?
       return redirect_to root_path, alert: "The #{@clock_event.clock_event_type.name} event already exists!"
     end
 
@@ -66,5 +67,9 @@ class ClockEventsController < ApplicationController
     def set_form_selection
       @user_for_select = User.not_admin.order(:first_name)
       @event_type_for_select = ClockEventType.all
+    end
+
+    def check_admin
+      redirect_to root_path, alert: "You don't have the permission to see the page!" unless current_user.admin?
     end
 end

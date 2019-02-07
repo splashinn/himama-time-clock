@@ -11,6 +11,7 @@
   table.table.table-bordered.table-hover.mt-2.mb-5
     thead
       tr.table-info
+        th ID
         th Date
         th Name
         th Type
@@ -20,6 +21,7 @@
       - if @clock_events.present?
         - @clock_events.each do |clock_event|
           tr
+            td = clock_event.id
             td = clock_event.clock_time.strftime('%b %d, %Y')
             td = clock_event.user.name
             td = clock_event.clock_event_type.name
@@ -28,6 +30,7 @@
             td = link_to 'Delete', clock_event, method: :delete, data: { confirm: 'Are you sure to delete?' } 
       - else
         tr
+          td N/A
           td N/A
           td N/A
           td N/A
