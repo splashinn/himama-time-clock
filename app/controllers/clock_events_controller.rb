@@ -1,13 +1,13 @@
 class ClockEventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_clock_event, only: [:edit, :update, :destroy]
-  before_action :set_form_selection, only: [:new, :edit]
+  before_action :set_form_selection, only: [:new, :create, :edit, :update]
 
   def index
     unless current_user.admin?
-      @clock_events = current_user.clock_events.order(clock_time: :desc)
+      @clock_events = current_user.clock_events.order(clock_time: :desc).includes(:clock_event_type)
     else
-      @clock_events = ClockEvent.all.order(clock_time: :desc)
+      @clock_events = ClockEvent.all.order(clock_time: :desc).includes(:user, :clock_event_type)
     end
   end
 

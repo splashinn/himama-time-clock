@@ -1,24 +1,24 @@
 = form_with(model: clock_event, local: true, html: {class: 'form-container'}) do |f|
   - if clock_event.errors.any?
-    #error_explanation
-      h2
+    #error_explanation.alert.alert-danger
+      h4
         = pluralize(clock_event.errors.count, "error")
         | prohibited this clock_event from being saved:
       ul
       - clock_event.errors.full_messages.each do |message|
         li = message
       
-  .form-group.row
-    = f.label :user_id, 'User Name', class: 'col-5 font-weight-bold'
-    = f.collection_select :user_id, @user_for_select, :id, :name
+  .form-group
+    = f.label :user_id, 'User Name', class: 'mr-2'
+    = f.collection_select :user_id, @user_for_select, :id, :name, class: 'form-control'
 
-  .form-group.row
-    = f.label :clock_event_type_id, 'Event Type', class: 'col-5 font-weight-bold'
-    = f.collection_select :clock_event_type_id, @event_type_for_select, :id, :name
+  .form-group
+    = f.label :clock_event_type_id, 'Event Type', class: 'mr-2'
+    = f.collection_select :clock_event_type_id, @event_type_for_select, :id, :name, class: 'form-control'
     
-  .form-group.row
-    = f.label :clock_time, 'Timestamp', class: 'col-5 font-weight-bold'
-    = f.text_field :clock_time, class: ''
+  .form-group
+    = f.label :clock_time, 'Timestamp'
+    = f.text_field :clock_time, value: @clock_event.clock_time || Time.now, class: 'form-control'
 
   = f.submit 'Save', class: 'btn btn-primary float-right'
   = link_to 'Back', clock_events_path, class: 'btn btn-light mr-2 float-right'
