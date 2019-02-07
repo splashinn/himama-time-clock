@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-clock_event_types = ClockEventType.create([{ name: 'Clock In' }, { name: 'Clock Out' }])
+clock_event_types = ClockEventType.create([{ name: 'Clock in' }, { name: 'Clock out' }])
