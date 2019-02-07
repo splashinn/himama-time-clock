@@ -1,13 +1,4 @@
 = form_with(model: clock_event, local: true, html: {class: 'form-container'}) do |f|
-  - if clock_event.errors.any?
-    #error_explanation.alert.alert-danger
-      h4
-        = pluralize(clock_event.errors.count, "error")
-        | prohibited this clock_event from being saved:
-      ul
-      - clock_event.errors.full_messages.each do |message|
-        li = message
-      
   .form-group
     = f.label :user_id, 'User Name', class: 'mr-2'
     = f.collection_select :user_id, @user_for_select, :id, :name, class: 'form-control'

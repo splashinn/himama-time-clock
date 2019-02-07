@@ -21,6 +21,11 @@ class ClockEventsController < ApplicationController
   def create
     @clock_event = ClockEvent.new(clock_event_params)
     
+    # Clock in / clock out can only be triggered once a day
+    if @clock_event.already_exist_at_the_day?
+      return redirect_to root_path, alert: "The #{@clock_event.clock_event_type.name} event already exists!"
+    end
+
     respond_to do |format|
       if @clock_event.save
         format.html { redirect_to root_path, notice: "#{@clock_event.clock_event_type.name} successfully!" }
