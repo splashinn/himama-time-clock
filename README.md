@@ -34,7 +34,7 @@ Website Link: [https://himama-time-clock.herokuapp.com/](https://himama-time-clo
    * modify the events via **edit** or **delete** link
    * add a new event for other employees via **Add New Event** link
 
-![Imgur](https://i.imgur.com/5XcJEzN.png)
+![Admin Page](https://i.imgur.com/YoH5gy7.png)
 
 ### Credit
 
