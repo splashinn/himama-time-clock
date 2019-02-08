@@ -1,5 +1,8 @@
 h1.h1.title.text-center.mt-5 Log In
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'user-form form-container'}) do |f|
+  - if flash[:alert]
+    .alert.alert-warning = flash[:alert]
+
   .form-group.email
     = f.label :email
     = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hola@himama.com', class: 'form-control'
