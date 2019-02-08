@@ -24,7 +24,7 @@
             td = clock_event.id
             td = clock_event.user.name
             td = clock_event.clock_event_type.name
-            td = clock_event.clock_time.strftime('%b %d, %Y %I:%M:%S %p')
+            td = clock_event.clock_time.strftime('%F %T')
             td = link_to 'Edit', edit_clock_event_path(clock_event) 
             td = link_to 'Delete', clock_event, method: :delete, data: { confirm: 'Are you sure to delete?' } 
       - else
