@@ -9,7 +9,7 @@
     
   .form-group
     = f.label :clock_time, 'Timestamp'
-    = f.text_field :clock_time, value: @clock_event.clock_time || Time.now, class: 'form-control'
+    = f.text_field :clock_time, value: @clock_event.clock_time || Time.zone.now, class: 'form-control'
 
   = f.submit 'Save', class: 'btn btn-primary float-right'
   = link_to 'Back', clock_events_path, class: 'btn btn-light mr-2 float-right'
