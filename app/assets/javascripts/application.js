@@ -1,7 +1,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require moment
-//= require datetimepicker
-//= require datatable
+//= require packages/moment
+//= require packages/datetimepicker
+//= require packages/datatable
 //= require clock_events
