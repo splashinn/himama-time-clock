@@ -76,3 +76,6 @@ This software uses the following open source packages:
 * [moment.js](https://momentjs.com/)
 * [Google Fonts](https://fonts.google.com/) (font: Kalam)
 * [Bootstrap](https://getbootstrap.com/) (v4.2.1)
+
+* Logo Image is from himama website: [https://www.himama.com/](https://www.himama.com/)
+* Clock Svg is from Codepen: [https://codepen.io/mohebifar/pen/KwdeMz](https://codepen.io/mohebifar/pen/KwdeMz)
