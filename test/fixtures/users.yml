@@ -23,8 +23,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  id: 1
+  first_name: 'Alice'
+  last_name: 'Haung'
+  email: 'alice_haung@example.com'
+  role: 0
+  
+two:
+  id: 2
+  first_name: 'Bob'
+  last_name: 'Jackman'
+  prefered_name: 'BJ'
+  email: 'bob_jackman@example.com'
+  role: 0
+  
+three:
+  id: 3
+  email: 'admin@example.com'
+  role: 1

@@ -11,7 +11,8 @@
 require 'test_helper'
 
 class ClockEventTypeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save type without name" do
+    type = ClockEventType.new
+    assert_not type.save
+  end
 end
