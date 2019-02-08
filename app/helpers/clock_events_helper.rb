@@ -1,10 +1,10 @@
 module ClockEventsHelper
-  def greeting
-    current_time = Time.zone.now.to_i
-    midnight = Time.zone.now.beginning_of_day.to_i
-    noon = Time.zone.now.middle_of_day.to_i
-    five_pm = Time.zone.now.change(:hour => 17 ).to_i
-    eight_pm = Time.zone.now.change(:hour => 20 ).to_i
+  def greeting time
+    current_time = time.to_i
+    midnight = time.beginning_of_day.to_i
+    noon = time.middle_of_day.to_i
+    five_pm = time.change(:hour => 17 ).to_i
+    eight_pm = time.change(:hour => 20 ).to_i
 
     case
     when midnight.upto(noon).include?(current_time)
