@@ -1,45 +1,45 @@
 # himama Time Clock ⏰
 
-🚀🚀🚀 A coding challenge that to build a clock-in / clock-out platform for helping employees to keep track of their time worked.
+> 🚀🚀🚀 A coding challenge that to build a clock-in / clock-out platform for helping employees to keep track of their time worked.
 
 ## Key Features
 
-### 💡 User authentication and lovely inline validation display
-
-Ref: `app/helpers/sign_up_form_builder.rb`
+#### 💡 User authentication and lovely inline validation display
 
 <img src="https://i.imgur.com/U1CG6OJ.png" alt="Log in" height="230"/><img src="https://i.imgur.com/ZqVLsTX.png" alt="Sign up" height="280"/><img src="https://i.imgur.com/gguSGYq.png" alt="Inline validation" height="280"/>
 
-### 💡 Warmest greeting words changed with the time changes (Good morning, afternoon, ..)
+> Ref: `app/helpers/sign_up_form_builder.rb`
 
-Ref: `app/helpers/clock_events_helper.rb`
+#### 💡 Warmest greeting words changed with the time changes (Good morning, afternoon, ..)
 
-![Greeting](https://i.imgur.com/d5mIq0D.png)
+<img src="https://i.imgur.com/d5mIq0D.png" alt="Greeting" height="180"/>
 
-### 💡 Clock-in or clock-out button showed based on each user's situation per day
+> Ref: `app/helpers/clock_events_helper.rb`
+
+#### 💡 Clock-in or clock-out button showed based on each user's situation per day
 
 <img src="https://i.imgur.com/Yrhwu8a.png" alt="Clock-in" height="180"/><img src="https://i.imgur.com/90WODVt.png" alt="Clock-in" height="180"/><img src="https://i.imgur.com/LDDnTyN.png" alt="Clock-in" height="180"/>
 
-1. Clock-in button will be shown if users have not clock-in today
-2. Clock-out button will be shown if users have clocked-in today
-3. Both buttons will be hidden if users have clocked-out today
+> 1. Clock-in button will be shown if users have not clock-in today
+> 2. Clock-out button will be shown if users have clocked-in today
+> 3. Both buttons will be hidden if users have clocked-out today
 
-### 💡 Different event logs displayed between teacher and admin
+#### 💡 Different event logs displayed between teacher and admin
 
-1. Teacher user can only see their own event logs
-2. Admin user can see all event logs and full permission to manage (CRUD)
+> 1. Teacher user can only see their own event logs
+> 2. Admin user can see all event logs and full permission to manage (CRUD)
 
-### 💡 A user friendly sortable / searchable / paginatable table for admin to manage the logs
-
-Ref: [datatatble.js](https://xdsoft.net/jqplugins/datetimepicker/)
+#### 💡 A user friendly sortable / searchable / paginatable table for admin to manage the logs
 
 ![Admin Page](https://i.imgur.com/YoH5gy7.png)
+
+> Ref: [datatatble.js](https://xdsoft.net/jqplugins/datetimepicker/)
 
 ## How to Use
 
 ⭐️ Website Link: [https://himama-time-clock.herokuapp.com/](https://himama-time-clock.herokuapp.com/)
 
-### 👉🏻 If you are a new user (teacher) of the platform ..
+#### 👉🏻 If you are a new user (teacher) of the platform ..
 
 1. Go to the [sign up](https://himama-time-clock.herokuapp.com/users/sign_up) page
 2. Fill up the form and pass the validation
@@ -49,12 +49,12 @@ Ref: [datatatble.js](https://xdsoft.net/jqplugins/datetimepicker/)
    * **clock-out** for today (once you clocked-in, your clock-in button will be changed to clock-out button)
    * See your **personal event logs**
 
-### 👉🏻 If you are an existing user (teacher) of the platform ..
+#### 👉🏻 If you are an existing user (teacher) of the platform ..
 
 1. Log into the website with your credentials (email, password)
 2. Same as point 3 and 4 of new users stated above
 
-### 👉🏻 If you are an admin ..
+#### 👉🏻 If you are an admin ..
 
 1. Log into the website with following credentials:
    * email: admin@hola.com
