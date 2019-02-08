@@ -1,2 +1,21 @@
 h1.h1.title.text-center.mt-5 Editing Event
-= render 'admin_form', clock_event: @clock_event
+= form_with(model: @clock_event, local: true, html: {class: 'form-container'}) do |f|
+  .form-group
+    .mr-2 User Name
+    .form-control.disabled title="You can't change the user. Please create new event if you would like to change." = @clock_event.user.name
+
+  .form-group
+    .mr-2 Event Type
+    .form-control.disabled title="You can't change the event type. Please create new event if you would like to change." = @clock_event.clock_event_type.name
+    
+  .form-group
+    = f.label :clock_time, 'Timestamp'
+    = f.text_field :clock_time, value: @clock_event.clock_time || Time.zone.now, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-primary float-right'
+  = link_to 'Back', clock_events_path, class: 'btn btn-light mr-2 float-right'
+
+javascript:
+  $('#clock_event_clock_time').datetimepicker({
+    maxDate: '+1970/01/01' // can only select date until today
+  });

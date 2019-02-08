@@ -37,11 +37,6 @@ class ClockEventsController < ApplicationController
   end
 
   def update
-    # Clock in / clock out can only be triggered once a day
-    if current_user.admin? && @clock_event.already_exist_at_the_day?
-      return redirect_to root_path, alert: "Can't be saved! The event already exists!"
-    end
-
     respond_to do |format|
       if @clock_event.update(clock_event_params)
         format.html { redirect_to root_path, notice: 'Update Event successfully!' }
