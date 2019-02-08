@@ -1,3 +1,23 @@
+.clock-user-container.container
+  .clock-and-time-block.mt-3
+    = render 'clock_events/clock'
+    .time-frame
+      #date-part
+      #time-part
+  .user-info-and-action-block.mt-5
+    - if current_user.clock_out_today?
+      .greeting ="Thanks for your effort today!"
+      .greeting = "#{greeting(Time.zone.now)}, #{current_user.name} :)"
+    - elsif current_user.clock_in_today?
+      .greeting Ready to get off the work?
+      = render 'clock_events/user_form', event_type: 'Clock out'
+    - else
+      .greeting = "#{greeting(Time.zone.now)}, #{current_user.name}!"
+      .greeting Ready for lovely students? :P
+      = render 'clock_events/user_form', event_type: 'Clock in'
+
+hr.mt-5
+
 .user-activity-container.container
   .user-activity-header.mt-5
     = image_tag 'file-text.svg', size: '30x30', class: 'mr-2'
@@ -17,6 +37,5 @@
             td = clock_event.clock_time.strftime('%I:%M:%S %p')
       - else
         tr
-          td N/A
-          td N/A
-          td N/A
+          - 3.times do
+            td N/A

@@ -3,27 +3,6 @@
 - if flash[:alert]
   .alert.alert-danger = flash[:alert]
 
-- unless current_user.admin?
-  .clock-user-container.container
-    .clock-and-time-block.mt-3
-      = render 'clock_events/clock'
-      .time-frame
-        #date-part
-        #time-part
-    .user-info-and-action-block.mt-5
-      - if current_user.clock_out_today?
-        .greeting ="Thanks for your effort today!"
-        .greeting = "#{greeting(Time.zone.now)}, #{current_user.name} :)"
-      - elsif current_user.clock_in_today?
-        .greeting Ready to get off the work?
-        = render 'clock_events/user_form', event_type: 'Clock out'
-      - else
-        .greeting = "#{greeting(Time.zone.now)}, #{current_user.name}!"
-        .greeting Ready for lovely students? :P
-        = render 'clock_events/user_form', event_type: 'Clock in'
-
-  hr.mt-5
-
 - if current_user.admin?
   = render 'clock_events/admin_index'
 - else

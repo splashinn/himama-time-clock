@@ -29,19 +29,14 @@
             td = link_to 'Delete', clock_event, method: :delete, data: { confirm: 'Are you sure to delete?' } 
       - else
         tr
-          td N/A
-          td N/A
-          td N/A
-          td N/A
-          td N/A
-          td N/A
-          td N/A
+          - 6.times do
+            td N/A
 
 javascript:
   $().ready(function() {
     $('#event-table').DataTable({
       "columnDefs": [
         { "orderable": false, "targets": [0,4,5] }
-      ]
+      ] // some columns don't need to be ordered
     });
   });
