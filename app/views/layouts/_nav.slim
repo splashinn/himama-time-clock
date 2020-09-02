@@ -1,6 +1,6 @@
-nav.navbar.navbar-light.bg-light
+nav.navbar.navbar-light
   = link_to '/', class: 'navbar-brand'
-    = image_tag 'https://s3.amazonaws.com/himama2/images/horizontal-logo.png', class: 'd-inline-block align-top', alt:'himama logo', title: 'himama'
+    = image_tag 'drglogo.png', size: "400x100", class: 'd-inline-block align-top img-fluid', alt:'himama logo', title: 'drg'
   - if user_signed_in?
     - if current_user.admin?
       .navbar-text = "You're logged in as #{current_user.email}"
