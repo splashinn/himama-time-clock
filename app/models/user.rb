@@ -35,7 +35,7 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :teacher
   end
-  
+
   def name
     return if self.admin?
     full_name = self.last_name + ", " + self.first_name
@@ -53,5 +53,4 @@ class User < ApplicationRecord
   def clock_out_today?
     self.clock_events.today.clock_out.present?
   end
-
 end
