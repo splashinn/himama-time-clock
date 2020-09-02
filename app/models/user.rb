@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
 
-  enum role: [:teacher, :admin]
+  enum role: [:staff, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   has_many :clock_events
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   scope :not_admin, -> { where.not(role: 1) }
 
   def set_default_role
-    self.role ||= :teacher
+    self.role ||= :staff
   end
 
   def name
