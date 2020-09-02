@@ -5,7 +5,7 @@ h1.h1.title.text-center.mt-5 Log In
 
   .form-group.email
     = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hola@himama.com', class: 'form-control'
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'hi@hello.com', class: 'form-control'
 
   .form-group.password
     = f.label :password
@@ -17,8 +17,8 @@ h1.h1.title.text-center.mt-5 Log In
       = f.label :remember_me
 
   = f.submit "Log in", class: 'btn btn-primary float-right'
-  
+
   hr.mt-5
-  
+
   .shared-links.mb-5
     = render "users/shared/links"
